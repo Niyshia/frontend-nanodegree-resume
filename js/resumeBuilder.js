@@ -1,45 +1,53 @@
-var name = 'Niyshia Tisdale'
-var formattedName = HTMLheaderName.replace('%data%', name);
-
-var role ='Web Developer'
-var formattedRole = HTMLheaderRole.replace('%data%', role);
-
-$('#header').prepend(formattedRole);
-$('#header').prepend(formattedName);
-
-/*$('#header').prepend(bio.role);
-$('#main').append(bio.mobile);
-$('#main').append(bio.contacts.email);
-$('#main').append(bio.bioPic);
-$('#main').append(bio.welcomeMessage);
-$('#main').append(bio.skills);*/
-
-
 var bio = {
     'name' : 'Niyshia Tisdale',
     'role' : 'Web Developer',
-    'contacts' : {
-      'email' : 'niyshia@gmail.com',
-      'mobile' : '919-675-1158',
-      'github' : 'Niyshia',
-      'location' : 'Raleigh'
-    },
+    'contacts' : [
+      {
+        'email' : 'niyshia@gmail.com',
+        'mobile' : '919-675-1158',
+        'github' : 'niyshia',
+        'location' : 'Raleigh'
+      }
+      ],
     'bioPic' : 'images/pf_1.jpg',
     'welcomeMessage' : 'Hi! Thank you for stopping by to view my work and resume.',
     'skills' : ['HTML5', 'CSS', 'JS']
-    };
+    }
+
+var formattedName = HTMLheaderName.replace('%data%', bio.name);
+var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
+var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+var formattedMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+
+$('#header').prepend(formattedRole);
+$('#header').prepend(formattedName);
+$('#header').append(formattedBioPic);
+$('#header').append(formattedMessage);
 
 if (bio.skills.length > 0) {
 
   $('#header').append(HTMLskillsStart);
 
   var formattedSkill = HTMLskills.replace('%data%', bio.skills[0]);
-  $('skills').append(formattedSkill);
+  $('#skills').append(formattedSkill);
   formattedSkill = HTMLskills.replace('%data%', bio.skills[1]);
-  $('skills').append(formattedSkill);
+  $('#skills').append(formattedSkill);
   formattedSkill = HTMLskills.replace('%data%', bio.skills[2]);
+  $('#skills').append(formattedSkill);
 }
 
+if (bio.contacts.length > 0) {
+
+  var formattedBioLocation = HTMLlocation.replace('%data%', bio.contacts[0].location);
+  var formattedMobile = HTMLmobile.replace('%data%', bio.contacts[0].mobile);
+  var formattedGitHub = HTMLgithub.replace('%data%', bio.contacts[0].github);
+  var formattedEmail = HTMLemail.replace('%data%', bio.contacts[0].email);
+
+  $('#topContacts:last').prepend(formattedBioLocation);
+  $('#topContacts:last').prepend(formattedMobile);
+  $('#topContacts:last').prepend(formattedGitHub);
+  $('#topContacts:last').prepend(formattedEmail);
+}
 
 var work = {
   'jobs' : [
@@ -73,7 +81,9 @@ var work = {
   ]
 };
 
-for (job in work.jobs) {
+function displayWork() {
+
+  for (job in work.jobs) {
   $('#workExperience').append(HTMLworkStart);
 
   var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
@@ -87,10 +97,15 @@ for (job in work.jobs) {
   $('.work-entry:last').append(formattedDates);
   $('.work-entry:last').append(formattedDesc);
   $('.work-entry:last').prepend(formattedLocation);
-
-
+  }
 }
 
+displayWork();
+/*$(document).click(function(loc) {
+  var x = loc.pageX;
+  var y = loc.pageY;
+  logClicks(x,y);
+});*/
 
 var portfolio = {
   'projects' : [
@@ -113,8 +128,28 @@ var education = {};
 education['schoolName'] = 'North Carolina Wesleyan College';
 education['yearsAttended'] = '2004 - 2008';
 education['schoolCity'] = 'Morrisville, NC';
-education['major'] = 'Bachelor of Science - Double Major in Business Admininstration and Computer Information Systems, 2008';
+education['degree'] = 'Bachelor of Science - Double Major in Business Admininstration and Computer Information Systems, 2008';
 education['onlineCourses'] = 'Front End Web Developer, Nanodegree, 2015';
 
+$('#education').append(HTMLschoolStart);
+
+var formattedSchoolName = HTMLschoolName.replace('%data%', education.schoolName);
+var formattedSchoolDegree = HTMLschoolDegree.replace('%data%', education.degree);
+
+$('.education-entry:first').prepend(formattedSchoolName);
+$('.education-entry').append(formattedSchoolDegree);
 
 
+function inName () {
+    var name = window.name;
+    name = name.trim().split(" ");
+    console.log(name);
+    name[1] = name[1].toUpperCase();
+    name[0] = name[0].slice(0,1).toUpperCase() + names[0].slice(1).toLowerCase();
+
+    // Don't delete this line!
+    return name[0] +" "+name[1];
+}
+var name = $(bio['name']).text();
+// Did your code work? The line below will tell you!
+$('#main').prepend(internationalizeButton);
