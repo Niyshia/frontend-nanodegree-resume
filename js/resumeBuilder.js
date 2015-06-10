@@ -1,155 +1,195 @@
+//Bio Section
 var bio = {
-    'name' : 'Niyshia Tisdale',
-    'role' : 'Web Developer',
-    'contacts' : [
-      {
-        'email' : 'niyshia@gmail.com',
-        'mobile' : '919-675-1158',
-        'github' : 'niyshia',
-        'location' : 'Raleigh'
-      }
-      ],
-    'bioPic' : 'images/pf_1.jpg',
-    'welcomeMessage' : 'Hi! Thank you for stopping by to view my work and resume.',
-    'skills' : ['HTML5', 'CSS', 'JS']
-    }
+  "name" : "Niyshia Tisdale",
+  "role" : "Web Developer",
+  "contacts" : {
+    "email" : "niyshia@gmail.com",
+    "mobile" : "919-675-1158",
+    "github" : "Niyshia",
+    "location" : "Raleigh"
+  },
+  "bioPic" : "images/bp.jpg",
+  "welcomeMessage" : "Hi! Thank you for stopping by to view my work and resume.",
+  "skills" : ["HTML5", "CSS", "JS"]
+};
 
-var formattedName = HTMLheaderName.replace('%data%', bio.name);
-var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
-var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
-var formattedMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+bio.display = function () {
+  var formattedName = HTMLheaderName.replace("%data%", bio.name);
+  var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+  var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+  var formattedMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+  var formattedBioLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+  var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+  var formattedGitHub = HTMLgithub.replace("%data%", bio.contacts.github);
+  var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
 
-$('#header').prepend(formattedRole);
-$('#header').prepend(formattedName);
-$('#header').append(formattedBioPic);
-$('#header').append(formattedMessage);
+  $("#header").prepend(formattedName, formattedRole, formattedBioPic, formattedMessage);
+  $("#topContacts").append(formattedMobile, formattedGitHub, formattedEmail, formattedBioLocation);
+  $("#footerContacts").append(formattedMobile, formattedGitHub, formattedEmail, formattedBioLocation);
 
-if (bio.skills.length > 0) {
-
-  $('#header').append(HTMLskillsStart);
-
-  var formattedSkill = HTMLskills.replace('%data%', bio.skills[0]);
-  $('#skills').append(formattedSkill);
-  formattedSkill = HTMLskills.replace('%data%', bio.skills[1]);
-  $('#skills').append(formattedSkill);
-  formattedSkill = HTMLskills.replace('%data%', bio.skills[2]);
-  $('#skills').append(formattedSkill);
+  if (bio.skills.length > 0) {
+    $("#header").append(HTMLskillsStart);
+    bio.skills.forEach(function (skill) {
+      var formattedSkill = HTMLskills.replace("%data%", skill);
+      $('#skills').append(formattedSkill);
+    });
+  }
 }
 
-if (bio.contacts.length > 0) {
 
-  var formattedBioLocation = HTMLlocation.replace('%data%', bio.contacts[0].location);
-  var formattedMobile = HTMLmobile.replace('%data%', bio.contacts[0].mobile);
-  var formattedGitHub = HTMLgithub.replace('%data%', bio.contacts[0].github);
-  var formattedEmail = HTMLemail.replace('%data%', bio.contacts[0].email);
-
-  $('#topContacts:last').prepend(formattedBioLocation);
-  $('#topContacts:last').prepend(formattedMobile);
-  $('#topContacts:last').prepend(formattedGitHub);
-  $('#topContacts:last').prepend(formattedEmail);
-}
-
+//Work Experience Section
 var work = {
-  'jobs' : [
+  "jobs" : [
     {
-      'employer' : 'Fidelity Investments',
-      'title' : 'Software Systems Analyst',
-      'dates' : 'October 2012 - Present',
-      'location' : 'Durham, NC',
-      'description' : 'Facilitate discussions between the development and business teams to capture business requirements, stories, use cases,' +
-      'business flows and acceptance criteria.Support the team through the Agile project lifecycle including requirements, development,' +
-      'testing/quality assurance and production release. Assists in evaluating design of new and existing systems to judge their' +
-      'functionality, effectiveness, reliability, performance, usage, maintainability and cost of ownership.Executes analysis for' +
-      'medium to large, projects with moderate oversight, recommend modifications to designs for achieving priority business requirements.' +
-      'Document objectives, use cases, requirements, stories, workflows, product specs as determined by each project. Traces specifications' +
-      'from requirements to objectives. Recommends changes to existing systems design to achieve requirements.'
+      "employer" : "Fidelity Investments",
+      "title" : "Software Systems Analyst",
+      "dates" : "October 2012 - Present",
+      "location" : "Durham, NC",
+      "description" : "Facilitate discussions between the development and business teams to capture business requirements, stories, use cases," +
+      "business flows and acceptance criteria.Support the team through the Agile project lifecycle including requirements, development," +
+      "testing/quality assurance and production release. Assists in evaluating design of new and existing systems to judge their" +
+      "functionality, effectiveness, reliability, performance, usage, maintainability and cost of ownership.Executes analysis for" +
+      "medium to large, projects with moderate oversight, recommend modifications to designs for achieving priority business requirements." +
+      "Document objectives, use cases, requirements, stories, workflows, product specs as determined by each project. Traces specifications" +
+      "from requirements to objectives. Recommends changes to existing systems design to achieve requirements."
     },
 
      {
-      'employer' : 'Fidelity Investments',
-      'title' : 'Software Quality Assurance Engineer',
-      'dates' : 'July 2009 - October 2012',
-      'location' : 'Durham, NC',
-      'description' : 'Facilitate discussions between the development and business teams to capture business requirements, stories, use cases,' +
-      'business flows and acceptance criteria.Support the team through the Agile project lifecycle including requirements, development,' +
-      'testing/quality assurance and production release. Assists in evaluating design of new and existing systems to judge their' +
-      'functionality, effectiveness, reliability, performance, usage, maintainability and cost of ownership.Executes analysis for' +
-      'medium to large, projects with moderate oversight, recommend modifications to designs for achieving priority business requirements.' +
-      'Document objectives, use cases, requirements, stories, workflows, product specs as determined by each project. Traces specifications' +
-      'from requirements to objectives. Recommends changes to existing systems design to achieve requirements.'
+      "employer" : "Fidelity Investments",
+      "title" : "Software Quality Assurance Engineer",
+      "dates" : "July 2009 - October 2012",
+      "location" : "Durham, NC",
+      "description" : "Facilitate discussions between the development and business teams to capture business requirements, stories, use cases," +
+      "business flows and acceptance criteria.Support the team through the Agile project lifecycle including requirements, development," +
+      "testing/quality assurance and production release. Assists in evaluating design of new and existing systems to judge their" +
+      "functionality, effectiveness, reliability, performance, usage, maintainability and cost of ownership.Executes analysis for" +
+      "medium to large, projects with moderate oversight, recommend modifications to designs for achieving priority business requirements." +
+      "Document objectives, use cases, requirements, stories, workflows, product specs as determined by each project. Traces specifications" +
+      "from requirements to objectives. Recommends changes to existing systems design to achieve requirements."
     },
   ]
 };
 
-function displayWork() {
+work.display = function() {
+  work.jobs.forEach (function (job) {
+    $("#workExperience").append(HTMLworkStart);
 
-  for (job in work.jobs) {
-  $('#workExperience').append(HTMLworkStart);
+    var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
+    var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
+    var formattedEmployerTitle = formattedEmployer + formattedTitle;
+    var formattedDates = HTMLworkDates.replace("%data%", job.dates);
+    var formattedDesc = HTMLworkDescription.replace("%data%", job.description);
+    var formattedLocation = HTMLworkLocation.replace("%data%", job.location)
 
-  var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
-  var formattedTitle = HTMLworkTitle.replace('%data%', work.jobs[job].title);
-  var formattedEmployerTitle = formattedEmployer + formattedTitle;
-  var formattedDates = HTMLworkDates.replace('%data%', work.jobs[job].dates);
-  var formattedDesc = HTMLworkDescription.replace('%data%', work.jobs[job].description);
-  var formattedLocation = HTMLworkLocation.replace('%data%', work.jobs[job].location)
-
-  $('.work-entry:last').append(formattedEmployerTitle);
-  $('.work-entry:last').append(formattedDates);
-  $('.work-entry:last').append(formattedDesc);
-  $('.work-entry:last').prepend(formattedLocation);
-  }
+    $(".work-entry:last").append(formattedEmployerTitle);
+    $(".work-entry:last").append(formattedDates);
+    $(".work-entry:last").append(formattedDesc);
+    $(".work-entry:last").prepend(formattedLocation);
+  });
 }
-
-displayWork();
-/*$(document).click(function(loc) {
-  var x = loc.pageX;
-  var y = loc.pageY;
-  logClicks(x,y);
-});*/
-
-var portfolio = {
-  'projects' : [
+//Projects Section
+var projects = {
+  "projects" : [
     {
-      'projectTitle' : 'Niyshia Tisdale',
-      'projectDates' : 'Web Developer',
-      'projectDescription' : 'test',
-      'projectImages' : 'niyshia@gmail.com'
+      "title" : "Intro Project: HTML5 Hello World!",
+      "dates" : "April 2015",
+      "description" : "Intro project to familirize myself with GitHub, HTML, CSS, and create a webpage",
+      "images" : ["images/introproject.png"]
     },
 
     {
-      'projectTitle' : 'Niyshia Tisdale',
-      'projectDates' : 'Web Developer',
-      'projectDescription' : 'test',
-      'projectImages' : 'niyshia@gmail.com'
+      "title" : "P1: Build a Portfolio Site",
+      "dates" : "May 2015",
+      "description" : "test",
+      "images" : ["images/pf_1.jpg"]
+    },
+  ]
+}
+
+projects.display = function() {
+  projects.projects.forEach(function(project){
+    $("#projects").append(HTMLprojectStart);
+    var formattedTitle = HTMLprojectTitle.replace("%data%", project.title);
+    var formattedDates = HTMLprojectDates.replace("%data%", project.dates);
+    var formattedDescription = HTMLprojectDescription.replace("%data%", project.description);
+    $(".project-entry:last").append(formattedTitle, formattedDates, formattedDescription);
+    if (project.images.length > 0) {
+      project.images.forEach(function(image){
+        var formattedImage = HTMLprojectImage.replace("%data%", image);
+        $(".project-entry:last").append(formattedImage);
+      });
+    }
+  })
+};
+
+//Education Section
+var education = {
+  "schools" : [
+    {
+      "name" : "North Carolina  Wesleyan College",
+      "dates" : "2004 - 2008 ",
+      "location" : "Morrisville, NC",
+      "degree" : " Bachelor of Science",
+      "major" : "Double Major in Business Admininstration and Computer Information Systems",
+    },
+
+    {
+      "name" : "North Carolina Central University",
+      "dates" : "1998 - 2002",
+      "location" : "Durham, NC",
+      "degree" : "n/a",
+      "major" : "Nursing",
+    },
+  ],
+  "onlineCourses" : [
+    {
+      "title" :"Front End Web Developer, Nanodegree",
+      "dates" : 2015,
+      "school" :"Udacity",
+      "url" : "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
     }
   ]
 }
-var education = {};
-education['schoolName'] = 'North Carolina Wesleyan College';
-education['yearsAttended'] = '2004 - 2008';
-education['schoolCity'] = 'Morrisville, NC';
-education['degree'] = 'Bachelor of Science - Double Major in Business Admininstration and Computer Information Systems, 2008';
-education['onlineCourses'] = 'Front End Web Developer, Nanodegree, 2015';
 
-$('#education').append(HTMLschoolStart);
+education.display = function(){
+  education.schools.forEach(function(school) {
+    $("#education").append(HTMLschoolStart);
 
-var formattedSchoolName = HTMLschoolName.replace('%data%', education.schoolName);
-var formattedSchoolDegree = HTMLschoolDegree.replace('%data%', education.degree);
+    var formattedSchoolName = HTMLschoolName.replace("%data%", school.name);
+    var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", school.degree);
+    var formattedSchoolDates = HTMLschoolDates.replace("%data%", school.dates);
+    var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", school.location);
+    var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", school.major);
 
-$('.education-entry:first').prepend(formattedSchoolName);
-$('.education-entry').append(formattedSchoolDegree);
+    $(".education-entry:last").append(formattedSchoolName, formattedSchoolDates, formattedSchoolLocation, formattedSchoolMajor);
+    $(".education-entry:last a").append(formattedSchoolDegree);
+  });
+
+  if (education.onlineCourses.length > 0) {
+    $(".education-entry:last").append(HTMLonlineClasses);
+    education.onlineCourses.forEach(function (course) {
+      var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", course.title);
+      var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", course.school);
+      var formattedOnlineDates = HTMLonlineDates.replace("%data%", course.dates);
+      var formattedSchoolUrl = HTMLonlineURL.replace("%data%", course.url);
 
 
-function inName () {
-    var name = window.name;
+      $(".education-entry:last").append(formattedOnlineTitle + formattedOnlineSchool, formattedOnlineDates);
+    });
+  }
+};
+
+bio.display();
+work.display();
+projects.display();
+education.display();
+
+function inName() {
+    var name = $("#name").html();
     name = name.trim().split(" ");
-    console.log(name);
+    name[0] = name[0].slice(0, 1).toUpperCase() + name[0].slice(1).toLowerCase();
     name[1] = name[1].toUpperCase();
-    name[0] = name[0].slice(0,1).toUpperCase() + names[0].slice(1).toLowerCase();
-
-    // Don't delete this line!
-    return name[0] +" "+name[1];
+    return name[0] + " " + name[1];
 }
-var name = $(bio['name']).text();
-// Did your code work? The line below will tell you!
-$('#main').prepend(internationalizeButton);
+$('#main').append(internationalizeButton);
+$("#mapDiv").append(googleMap);
