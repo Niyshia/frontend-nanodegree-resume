@@ -126,6 +126,7 @@ var education = {
       "location" : "Morrisville, NC",
       "degree" : " Bachelor of Science",
       "major" : "Double Major in Business Admininstration and Computer Information Systems",
+      "url" : "www.nwcw.edu"
     },
 
     {
@@ -134,6 +135,7 @@ var education = {
       "location" : "Durham, NC",
       "degree" : "n/a",
       "major" : "Nursing",
+      "url" : "www.nccu.edu"
     },
   ],
   "onlineCourses" : [
@@ -150,7 +152,7 @@ education.display = function(){
   education.schools.forEach(function(school) {
     $("#education").append(HTMLschoolStart);
 
-    var formattedSchoolName = HTMLschoolName.replace("%data%", school.name);
+    var formattedSchoolName = HTMLschoolName.replace("%data%", school.name).replace('#', school.url);
     var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", school.degree);
     var formattedSchoolDates = HTMLschoolDates.replace("%data%", school.dates);
     var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", school.location);
