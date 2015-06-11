@@ -57,15 +57,10 @@ var work = {
      {
       "employer" : "Fidelity Investments",
       "title" : "Software Quality Assurance Engineer",
-      "dates" : "July 2009 - October 2012",
+      "dates" : "July 2009 - September 2012",
       "location" : "Durham, NC",
-      "description" : "Facilitate discussions between the development and business teams to capture business requirements, stories, use cases," +
-      "business flows and acceptance criteria.Support the team through the Agile project lifecycle including requirements, development," +
-      "testing/quality assurance and production release. Assists in evaluating design of new and existing systems to judge their" +
-      "functionality, effectiveness, reliability, performance, usage, maintainability and cost of ownership.Executes analysis for" +
-      "medium to large, projects with moderate oversight, recommend modifications to designs for achieving priority business requirements." +
-      "Document objectives, use cases, requirements, stories, workflows, product specs as determined by each project. Traces specifications" +
-      "from requirements to objectives. Recommends changes to existing systems design to achieve requirements."
+      "description" : "Develop test plans working with test leads, User Acceptance Testing Analysts, Implementation Managers, Project Managers, Lines of Business, IT/IS, and users."+
+      "Develop test cases and test scripts/procedures from requirement documentation, specification documentation and/or business scenarios."
     },
   ]
 };
@@ -79,7 +74,7 @@ work.display = function() {
     var formattedEmployerTitle = formattedEmployer + formattedTitle;
     var formattedDates = HTMLworkDates.replace("%data%", job.dates);
     var formattedDesc = HTMLworkDescription.replace("%data%", job.description);
-    var formattedLocation = HTMLworkLocation.replace("%data%", job.location)
+    var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
 
     $(".work-entry:last").append(formattedEmployerTitle);
     $(".work-entry:last").append(formattedDates);
