@@ -93,7 +93,7 @@ var projects = {
     {
       "title" : "Intro Project: HTML5 Hello World!",
       "dates" : "April 2015",
-      "description" : "Intro project to familirize myself with GitHub, HTML, CSS, and create a webpage",
+      "description" : "Intro project to familiarize myself with GitHub, HTML, CSS, and create a webpage",
       "images" : ["images/introproject.png"]
     },
 
