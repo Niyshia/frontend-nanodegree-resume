@@ -125,8 +125,7 @@ var education = {
       "dates" : "2004 - 2008 ",
       "location" : "Morrisville, NC",
       "degree" : " Bachelor of Science",
-      "major" : "Double Major in Business Admininstration and Computer Information Systems",
-      "url" : "www.nwcw.edu"
+      "major" : "Double Major in Business Admininstration and Computer Information Systems"
     },
 
     {
@@ -134,8 +133,7 @@ var education = {
       "dates" : "1998 - 2002",
       "location" : "Durham, NC",
       "degree" : "n/a",
-      "major" : "Nursing",
-      "url" : "www.nccu.edu"
+      "major" : "Nursing"
     },
   ],
   "onlineCourses" : [
