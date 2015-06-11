@@ -125,8 +125,7 @@ var education = {
       "dates" : "2004 - 2008 ",
       "location" : "Morrisville, NC",
       "degree" : " Bachelor of Science",
-      "major" : "Double Major in Business Admininstration and Computer Information Systems",
-      "url" : "www.nwcw.edu"
+      "major" : "Double Major in Business Admininstration and Computer Information Systems"
     },
 
     {
@@ -134,8 +133,7 @@ var education = {
       "dates" : "1998 - 2002",
       "location" : "Durham, NC",
       "degree" : "n/a",
-      "major" : "Nursing",
-      "url" : "www.nccu.edu"
+      "major" : "Nursing"
     },
   ],
   "onlineCourses" : [
@@ -152,7 +150,7 @@ education.display = function(){
   education.schools.forEach(function(school) {
     $("#education").append(HTMLschoolStart);
 
-    var formattedSchoolName = HTMLschoolName.replace("%data%", school.name).replace('#', school.url);
+    var formattedSchoolName = HTMLschoolName.replace("%data%", school.name);
     var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", school.degree);
     var formattedSchoolDates = HTMLschoolDates.replace("%data%", school.dates);
     var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", school.location);
@@ -165,7 +163,7 @@ education.display = function(){
   if (education.onlineCourses.length > 0) {
     $(".education-entry:last").append(HTMLonlineClasses);
     education.onlineCourses.forEach(function (course) {
-      var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", course.title);
+      var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", course.title).replace('#', course.url);
       var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", course.school);
       var formattedOnlineDates = HTMLonlineDates.replace("%data%", course.dates);
       var formattedSchoolUrl = HTMLonlineURL.replace("%data%", course.url);
