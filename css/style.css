@@ -1,6 +1,6 @@
-* {
-  padding:0;
-  margin:0;
+body {
+  padding: 0;
+  margin: 0;
   font-family: 'Lora', serif;
 }
 
@@ -9,13 +9,13 @@
 }
 
 .education-entry, .work-entry, .project-entry {
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 5em;
+  padding-right: 5em;
 }
 
 h1 {
   font-size: 40px;
-  color: #1A5959;
+  color: #1a5959;
   line-height: 48px;
   display: inline;
 }
@@ -23,7 +23,7 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999999;
+  color: #999;
   line-height: 29px;
   padding: 10px;
 }
@@ -31,28 +31,28 @@ h2 {
 h3 {
   font-style: italic;
   font-size: 20px;
-  color: #000000;
+  color: #000;
   line-height: 22px;
 }
 
 h4 {
   font-weight: bold;
   font-size: 14px;
-  color: #4A4A4A;
+  color: #4a4a4a;
   line-height: 17px;
 }
 
 h2, h3, h4, h5 {
-  padding:10px;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding: 10px;
+  padding-left: 3em;
+  padding-right: 3em;
 }
 
 
 .date-text {
   font-style: italic;
   font-size: 14px;
-  color: #999999;
+  color: #999;
   line-height: 16px;
   float: left;
 }
@@ -60,7 +60,7 @@ h2, h3, h4, h5 {
 .location-text {
   font-style: italic;
   font-size: 14px;
-  color: #999999;
+  color: #999;
   line-height: 16px;
   float: right;
 
@@ -68,12 +68,12 @@ h2, h3, h4, h5 {
 
 p {
   font-size: 14px;
-  color: #333333;
+  color: #333;
   line-height: 21px;
 }
 
 a {
-  color: #1199C3;
+  color: #1199c3;
   text-decoration: none;
   margin-top: 10px;
   display: block;
@@ -82,17 +82,17 @@ a {
 .welcome-message {
   font-style: italic;
   font-size: 18px;
-  color: #8C241B;
+  color: #8c241b;
   line-height: 28px;
 }
 
 #skillsH3 {
-  color: #F5AE23;
+  color: #f5ae23;
   display: none;
 }
 
 .orange {
-  background-color: #EBE6C4;
+  background-color: #ebe6c4;
 }
 
 .orange-text {
@@ -101,17 +101,17 @@ a {
 
 .white-text {
   font-weight: bold;
-  color: #E7DA7B;
+  color: #e7da7b;
 }
 
 .cyan  {
-  background-color: #CDFEFF;
+  background-color: #cdfeff;
   padding-bottom: 10px;
   clear:both;
 }
 
 .dark-cyan {
-  background-color: #6DB5B4;
+  background-color: #6db5b4;
 }
 
 /* TODO: Replace with image later */
@@ -120,7 +120,16 @@ a {
   background-repeat: right bottom repeat-y;
 }
 
-.flex-box {
+.flex-boxtop {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.flex-boxfoot {
   display: -webkit-flex;
   display: flex;
   flex-direction: row;
@@ -130,14 +139,19 @@ a {
 }
 
 .center-content {
-  padding-top: 2.5%;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-bottom: 2.5%
+  padding-top: 2.5em;
+  padding-left: 5em;
+  padding-right: 5em;
+  padding-bottom: 2.5em;
 }
 
 ul {
   list-style-type: none;
+}
+
+#skills {
+  list-style-type: none;
+  display: list-item;
 }
 
 .biopic {
@@ -154,7 +168,7 @@ img {
 /* Bar chart stuff */
 .chart div {
   font: 10px sans-serif;
-  background-color: #4A4A4A;
+  background-color: #4a4a4a;
   text-align: right;
   padding: 3px;
   margin: 1px;
@@ -185,7 +199,7 @@ span {
 
 @media only screen and (max-width: 750px) {
   #letsConnect {
-    margin-top: 10%;
+    margin-top: 10em;
   }
   .biopic {
     width: 150px;
